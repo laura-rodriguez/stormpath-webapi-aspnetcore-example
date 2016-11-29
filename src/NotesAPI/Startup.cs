@@ -36,6 +36,10 @@ namespace NotesAPI
             {
                 Web = new WebConfiguration()
                 {
+                    // This explicitly tells the Stormpath middleware to only serve JSON responses (appropriate for an API).
+                    // By default, HTML responses are served too.
+                    Produces = new[] {"application/json"},
+
                     Oauth2 = new WebOauth2RouteConfiguration()
                     {
                         Uri = "/token",
